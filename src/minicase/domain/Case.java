@@ -31,5 +31,5 @@ public class Case implements Openable {
     }
 
     //TODO: dodawanie do ekwipunku, pobieranie z konta pięniędzy, nowa metoda losowania (zależna od rzadkości)
-    
+
 }
