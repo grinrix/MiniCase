@@ -49,10 +49,6 @@ public class Profile {
         }
     }
 
-    //gepetto mowi by to dodac
-    public void addItem(Item item);
-    public boolean isBroke(double amount);
-    public void delMoney(double amount);
 
     // Wyświetla profil gracza
     public void showProfile() {
