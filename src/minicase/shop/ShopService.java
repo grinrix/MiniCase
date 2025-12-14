@@ -1,34 +1,24 @@
 package minicase.shop;
 
-import minicase.domain.Profile;
-import minicase.domain.CaseItem;
+import minicase.domain.*;
 import minicase.domain.Case;
 
-public class ShopService {
+public class ShopService implements Shop {
 
-    public static void BuyAndOpen(Profile user, Case box) {
+    @Override
+    public CaseItem buyAndOpen(Profile profile, Case c) {
 
-        double cost = box.getCost();
-
-        // Sprawdzenie czy użytkownika stać
-        if (user.isBroke(cost)) {
-
-            // Zabranie pieniędzy
-            user.delMoney(cost);
-
-            // Otwarcie skrzynki
-            CaseItem item = box.open();
-
-            // Dodanie itemu do ekwipunku
-            user.addItem(item);
-
-            System.out.println("Otworzyłeś skrzynkę!");
-            System.out.println("Wylosowany item: " + item);
-
-        } else {
-            // LIPA
-            System.out.println("Brak środków!");
-            System.out.println("50 lat prac społecznych.");
+        if (!profile.isBroke(c.getCost())) {
+            System.out.println("BRAK ŚRODKÓW!!!");
+            return null;
         }
+
+        profile.delMoney(c.getCost());
+
+        CaseItem item = c.open();
+        profile.addItem(item);
+
+        System.out.println("Wylosowano: " + item.check());
+        return item;
     }
 }

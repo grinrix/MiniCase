@@ -1,4 +1,4 @@
-﻿package minicase.domain;
+package minicase.domain;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class Profile {
         System.out.println("Ekwipunek:");
 
         if (inventory.isEmpty()) {
-            System.out.println("brak przedmiotów");
+            System.out.println("brak przedmiotow");
         } else {
             for (CaseItem item : inventory) {
                 System.out.println(" - " + item);

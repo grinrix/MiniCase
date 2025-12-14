@@ -18,8 +18,17 @@ public class Case implements Openable {
 
     @Override
     public CaseItem open() {
-        int index = random.nextInt(drops.size());
-        return drops.get(index);
+        Rarity rollRarity;
+        int roll = random.nextInt(100) + 1;
+        if(roll > 99){ rollRarity = Rarity.LEGENDARY;}
+        else if (roll >= 80) { rollRarity = Rarity.RARE;}
+        else { rollRarity = Rarity.COMMON;}
+
+        List<CaseItem> possibleDrops = drops.stream()
+                .filter(item -> item.getRarity() == rollRarity)
+                .toList();
+
+        return possibleDrops.get(random.nextInt(possibleDrops.size()));
     }
 
     public String getName() {
