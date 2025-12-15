@@ -47,8 +47,8 @@ public class CaseData {
         epicCase_drops.add(konstantynopolitańczykowianeczka);
         epicCase_drops.add(hogrider);
 
-        Case epicCase = new Case("Normal Case", 2.50, normalCase_drops);
-        caseList.add(normalCase);
+        Case epicCase = new Case("Epic Case", 12.50, epicCase_drops);
+        caseList.add(epicCase);
 
 
         return caseList;
